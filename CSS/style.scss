@@ -1,0 +1,246 @@
+$color-text:#888888;
+$color-bg:#F6F6F6;
+$color-bg2:#202124;
+$color-title:#202124;
+$color-accent:#FA6980;
+$color-accent2:#BBBBBB;
+
+@mixin inner($w:800px) {
+    width: 80%;
+    max-width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin flex($a:center, $j:space-between) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin py($y:30px) {
+    padding-top: $y;
+    padding-bottom: $y;
+}
+
+@mixin title() {
+    color: $color-title;
+    font-size: 24px;
+    line-height: 1;
+    padding-left: 10px;
+    border-left: 10px solid $color-accent;
+}
+
+@mixin col2($w:(380/800)*100%) {
+    width: $w;
+}
+
+@mixin col3($w:(240/800)*100%) {
+    width: $w;
+}
+
+@mixin btn($c:$color-accent) {
+    display: block;
+    width: 160px;
+    padding: 14px;
+    background: $c;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+}
+
+// BASE
+body {
+    color: $color-text;
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: (24/14);
+    letter-spacing: 0;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+// BLOCK
+// header
+.header {
+    @include py();
+
+    &__inner {
+        @include inner()
+    }
+
+    &__logo {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+// main
+// news
+.news {
+    @include py();
+
+    &__inner {
+        @include inner();
+    }
+
+    ;
+
+    &__title {
+        @include title();
+    }
+
+    &__items {
+        @include flex();
+    }
+}
+
+// unit
+.unit {
+    @include py;
+
+    &--col2 {
+        @include col2;
+    }
+
+    &__catch {
+        color: $color-accent;
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    &__title {
+        color: $color-title;
+        font-size: 18px;
+    }
+
+    &__created {
+        color: $color-accent2;
+        font-size: 12px;
+        padding-left: 26px;
+        background: url(../images/icon_time.png) no-repeat left center;
+        margin-top: 20px;
+    }
+
+    &__btn {
+        @include btn($color-bg2);
+        margin-top: 25px;
+    }
+
+    &--border {
+        border-bottom: #ddd 1px solid;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+// trend
+.trend {
+    background-color: $color-bg;
+    @include py(60px);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        @include title();
+    }
+
+    &__items {
+        @include flex();
+        margin-top: 30px;
+    }
+}
+
+// card
+.card {
+    &--col2 {
+        @include col2;
+    }
+
+    &--col3 {
+        @include col3;
+    }
+
+    &__body {
+        padding: 35px;
+        background-color: #fff;
+    }
+
+    &__title {
+        color: $color-title;
+        font-size: 18px;
+    }
+
+    &__btn {
+        @include btn();
+        margin-top: 25px;
+    }
+
+}
+
+// btn
+.btn {
+    &--right {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+// footer
+.footer {
+    background-color: $color-bg2;
+    @include py(40px);
+    padding-top: 100px;
+
+    &__inner {
+        @include inner;
+    }
+
+    &__copy {
+        color: $color-accent2;
+        font-size: 12px;
+    }
+}
+
+// deep.html
+// info
+.info {
+    @include py;
+
+    &__inner {
+        @include inner;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// discovery
+.discovery {
+    background-color: $color-bg;
+    @include py(60px);
+
+    &__inner {
+        @include inner;
+    }
+
+    &__title {
+        @include title;
+    }
+
+    &__items {
+        @include flex;
+        margin-top: 30px;
+    }
+}
